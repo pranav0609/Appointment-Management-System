@@ -1,0 +1,38 @@
+<div>
+    <a href="/s/dashboard/">Back to dashboard</a>
+    </div>
+    <hr>
+
+    
+    
+    <% if(details!=null) { %>
+    <table>
+    <tr>
+        <th>Teacher Name</th>
+        <th>Topic</th>
+        <th>Day</th>
+        <th>Doubt</th>
+        <th>Teacher's Response</th>
+        <th>Remark</th>
+        
+    </tr>
+    <% details.forEach(function(item){ %>
+    <tr>
+        <td><%= item.teacher_name%></td>
+        <td><%= item.Topic %></td>
+        <td><%= item.Day %></td>
+        <td><%= item.doubt%></td>
+        <% if(item.Accepted === true) { %>
+            <td>Accepted</td>
+        <% } else if(item.Accepted === false) { %>
+            <td>Rejected</td>
+        <% } else { %>
+            <td>Not reponded</td>
+        <% } %>
+        <td>
+            <%= item.Message %>
+        </td>
+    </tr>
+    <% }) %>
+    </table>
+    <% } %>

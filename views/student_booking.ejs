@@ -1,0 +1,48 @@
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body text-center">
+        <h1 class="mb-3">
+          <img src="/assets/cyber-security-icon.jpg" alt="icon" width="20%" />
+        </h1>
+        <h2>
+          Fix an appointment
+        </h2>
+        <%- include ("./messages") %>
+        <form action="/s/dashboard/book" method="POST">
+          <div class="form-group">
+            <input type="hidden" id="student_name" name="student_name" class="form-control" placeholder="Enter student_name"
+              value="<%= student_name %>" />
+          </div>
+          <div class="form-group">
+            <label for="name">Subject</label>
+            <input type="subject" id="subject" name="Subject" class="form-control" placeholder="Enter Subject"
+              value="<%= typeof Subject != 'undefined' ? Subject : '' %>" />
+          </div>
+          <div class="form-group">
+            <label for="teacher">Teacher</label>
+            <input type="teacher" id="teacher" name="teacher_name" class="form-control" placeholder="Teacher Name"
+              value="<%= typeof teacher_name != 'undefined' ? teacher_name : '' %>" />
+          </div>
+          
+          <div class="form-group">
+            <label for="day">Day</label>
+            <input type="day" id="day" name="Day" class="form-control" placeholder="Enter day"
+              value="<%= typeof Day != 'undefined' ? Day : '' %>" />
+          </div>
+          <div class="form-group">
+            <label for="topic">Topic</label>
+            <input type="topic" id="topic" name="Topic" class="form-control" placeholder="Topic in whic you have doubt"
+              value="<%= typeof Topic != 'undefined' ? Topic : '' %>" />
+          </div>
+          <div class="form-group">
+            <label for="doubt">Doubt</label>
+            <input type="doubt" id="doubt" name="doubt" class="form-control" placeholder="Specify your doubt"
+              value="<%= typeof doubt != 'undefined' ? doubt : '' %>" />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            Request an appointment
+          </button>
+        </form>
+    </div>
+</div>
+</div>

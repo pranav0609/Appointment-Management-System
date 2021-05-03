@@ -1,0 +1,71 @@
+<div>
+    <a href="/t/dashboard/">Back to dashboard</a>
+    </div>
+    <hr>
+
+    <%- include ("./messages") %>
+    
+    <% if(details!=null) { %>
+    <table>
+    <tr>
+        <th>Student Name</th>
+        <th>Topic</th>
+        <th>Day</th>
+        <th>Doubt</th>
+        <th>Your Response</th>
+        <th> Remark </th>
+        <!-- <th>Give time slot if accepting or <br> mention reason if rejecting</th> -->
+        <th>Respond</th>
+        
+    </tr>
+    <% details.forEach(function(item){ %>
+    <tr>
+        <td><%= item.student_name%></td>
+        <td><%= item.Topic %></td>
+        <td><%= item.Day %></td>
+        <td><%= item.doubt%></td>
+        <% if(item.Accepted === true) { %>
+            <td>Accepted</td>
+        <% } else if(item.Accepted === false) { %>
+            <td>Rejected</td>
+        <% } else { %>
+            <td>Not reponded</td>
+        <% } %>
+        <!-- <td>
+            <div class="form-group"> 
+            <form action="/t/dashboard/bookings?_method=PUT" method="POST">
+                           
+                <input type="message" id="message" name="message" class="form-control" placeholder="Mention Time slot or rejection reason"
+                  value="<%= typeof message != 'undefined' ? message : '' %>" />
+              
+            
+        </div>
+        </td> -->
+        <td>
+            <%= item.Message %>
+        </td>
+        <td>
+            <form action="/t/dashboard/bookings?_method=PUT" method="POST">
+                <input type="message" id="message" name="message" class="form-control" placeholder="Mention a Time slot "
+                  value="<%= typeof message != 'undefined' ? message : '' %>" />
+                <input type="hidden" name="id" value="<%= item._id %>">
+            <button type="submit" class="btn btn-primary btn-block" onclick="return confirm('are you sure you want to accept this ?');">
+                Accept Appointment
+            </button>
+            <br>
+        </form>
+        <form action="/t/dashboard/bookings?_method=DELETE" method="POST">
+            <input type="message" id="message" name="message" class="form-control" placeholder="Reason for rejecting request "
+                  value="<%= typeof message != 'undefined' ? message : '' %>" />
+            <input type="hidden" name="id" value="<%= item._id %>">
+            <button type="submit" class="btn btn-primary btn-block" onclick="return confirm('are you sure you want to Reject this ?');">
+                Reject Appointment
+            </button>
+        </form>
+        </td>
+        
+    
+    </tr>
+    <% }) %>
+    </table>
+    <% } %>

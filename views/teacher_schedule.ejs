@@ -1,0 +1,62 @@
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+      <div class="card card-body text-center">
+        <h1 class="mb-3">
+          <img src="/assets/secure-icon.png" alt="icon" width="20%" />
+        </h1>
+        <h2>
+          Enter time slots for doubt session
+        </h2>
+        <%- include ("./messages") %>
+        <form action="/t/dashboard/schedule" method="POST">
+          <div class="form-group">
+            <input type="hidden" id="name" name="name" class="form-control"
+              value="<%= name %>"/>
+          </div>
+          <div class="form-group">
+            <input type="hidden" id="subject" name="subject" class="form-control"
+              value="<%= subject %>"/>
+          </div>
+          <div class="form-group">
+            <label for="Monday">Monday</label>
+            <input type="Monday" id="Monday" name="Monday" class="form-control" placeholder="Time slots for monday"
+              value="<%= typeof Monday != 'undefined' ? Monday : '' %>" />
+          </div>
+          <div class="form-group">
+            <label for="Tuesday">Tuesday</label>
+            <input type="Tuesday" id="Tuesday" name="Tuesday" class="form-control" placeholder="Time slots for Tuesday"
+              value="<%= typeof Tuesday != 'undefined' ? Tuesday : '' %>" />
+          </div>
+          <div class="form-group">
+            <label for="Wednesday">Wednesday</label>
+            <input type="Wednesday" id="Wednesday" name="Wednesday" class="form-control" placeholder="Time slots for Wednesday"
+              value="<%= typeof Wednesday != 'undefined' ? Wednesday : '' %>" />
+          </div>
+          <div class="form-group">
+            <label for="Thursday">Thursday</label>
+            <input type="Thursday" id="Thursday" name="Thursday" class="form-control" placeholder="Time slots for Thursday"
+              value="<%= typeof Thursday != 'undefined' ? Thursday : '' %>" />
+          </div>
+          <div class="form-group">
+            <label for="Friday">Friday</label>
+            <input type="Friday" id="Friday" name="Friday" class="form-control" placeholder="Time slots for Friday"
+              value="<%= typeof Friday != 'undefined' ? Friday : '' %>" />
+          </div>
+          <div class="form-group">
+            <label for="Saturday">Saturday</label>
+            <input type="Saturday" id="Saturday" name="Saturday" class="form-control" placeholder="Time slots for Saturday"
+              value="<%= typeof Saturday != 'undefined' ? Saturday : '' %>" />
+          </div>
+          <div class="form-group">
+            <label for="Sunday">Sunday</label>
+            <input type="Sunday" id="Sunday" name="Sunday" class="form-control" placeholder="Time slots for Sunday"
+              value="<%= typeof Sunday != 'undefined' ? Sunday : '' %>" />
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            Save my schedule
+          </button>
+        </form>
+        <!-- <p class="mt-4">Already have an account? <a href="/auth/teacher/login">Login</a></p> -->
+      </div>
+    </div>
+  </div>

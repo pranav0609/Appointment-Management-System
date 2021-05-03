@@ -1,0 +1,34 @@
+<div>
+<a href="/s/dashboard/">Back to dashboard</a>
+</div>
+<hr>
+
+<% if(details!=null) { %>
+<table>
+<tr>
+    <th>Name</th>
+    <th>Subject</th>
+    <th>Monday</th>
+    <th>Tuesday</th>
+    <th>Wednesday</th>
+    <th>Thursday</th>
+    <th>Friday</th>
+    <th>Saturday</th>
+    <th>Sunday</th>
+</tr>
+<% details.forEach(function(item){ %>
+<tr>
+    <td><%= item.name%></td>
+    <td><%= item.subject %></td>
+    <td><%= item.Monday %></td>
+    <td><%= item.Tuesday%></td>
+    <td><%= item.Wednesday %></td>
+    <td><%= item.Thursday%></td>
+    <td><%= item.Friday%></td>
+    <td><%= item.Saturday%></td>
+    <td><%= item.Sunday%></td>
+
+</tr>
+<% }) %>
+</table>
+<% } %>
